@@ -11,7 +11,7 @@ async function getSolutions() {
     for (let problem of problems) {
         try {
             let data = await request({
-                uri: 'http://www.jiuzhang.com/api/solution_code/get_code_list/?unique_name=' + problem.unique_name + '&language=1&is_highlight=true',
+                uri: 'http://www.jiuzhang.com/api/solution_code/get_code_list/?unique_name=' + problem.unique_name + '&language=1',
                 json: true,
                 timeout: 10000
             })
