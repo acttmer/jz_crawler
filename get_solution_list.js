@@ -4,7 +4,7 @@ const problems = require('./problem_list.json')
 
 const snooze = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-async function getSolutions(start_from = 0) {
+async function getSolutions(start_from) {
     let list = []
     let counter = 0
 
@@ -89,6 +89,7 @@ async function getSolutions(start_from = 0) {
 
     if(fs.existsSync('start_from')) {
         start_from = fs.readFileSync('start_from', 'utf-8')
+        console.log('Start from' + start_from)
     }
 
     let data = await getSolutions(start_from)
