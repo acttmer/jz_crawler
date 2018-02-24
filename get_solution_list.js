@@ -68,7 +68,11 @@ async function getSolutions() {
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
         }
 
-        await snooze(500)
+        await snooze(100)
+
+        if (counter % 20 == 0) {
+            await snooze(5000)
+        }
     }
 
     return list
