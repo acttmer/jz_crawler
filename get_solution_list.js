@@ -15,7 +15,12 @@ async function getSolutions() {
             let highlight_tags = await request({
                 uri: 'http://www.jiuzhang.com/api/solution/' + problem.unique_name + '/get_highlight_tags/',
                 json: true,
-                timeout: 10000
+                timeout: 10000,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
+                    'Host': 'www.jiuzhang.com',
+                    'Referer': 'http://www.jiuzhang.com/solution/' + problem.unique_name
+                }
             })
 
             let suffix = ''
@@ -26,7 +31,12 @@ async function getSolutions() {
             let language_tags = await request({
                 uri: 'http://www.jiuzhang.com/api/solution/' + problem.unique_name + '/get_language_tags/?from=cu' + suffix,
                 json: true,
-                timeout: 10000
+                timeout: 10000,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
+                    'Host': 'www.jiuzhang.com',
+                    'Referer': 'http://www.jiuzhang.com/solution/' + problem.unique_name
+                }
             })
 
             console.log('Problem {Id=' + problem.id + '}')
@@ -39,7 +49,12 @@ async function getSolutions() {
                 let codedata = await request({
                     uri: 'http://www.jiuzhang.com/api/solution_code/get_code_list/?unique_name=' + problem.unique_name + final_suffix,
                     json: true,
-                    timeout: 10000
+                    timeout: 10000,
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
+                        'Host': 'www.jiuzhang.com',
+                        'Referer': 'http://www.jiuzhang.com/solution/' + problem.unique_name
+                    }
                 })
                 
                 solutions.push({
@@ -70,10 +85,10 @@ async function getSolutions() {
 
         await snooze(100)
 
-        if (counter % 43 == 0) {
-            console.log('=====> Have a rest ^_^ <=====')
-            await snooze(120000)
-        }
+        /*if (counter % 43 == 0) {
+            console.log('=====> We must have a rest ^_^ <=====')
+            await snooze(75000)
+        }*/
     }
 
     return list
