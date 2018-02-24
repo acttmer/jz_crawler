@@ -2,6 +2,8 @@ const fs = require('fs')
 const request = require('request-promise-native')
 const problems = require('./problem_list.json')
 
+const snooze = ms => new Promise(resolve => setTimeout(resolve, ms))
+
 async function getSolutions() {
     let list = []
     let counter = 0
@@ -64,7 +66,7 @@ async function getSolutions() {
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
         }
 
-        sleep(100)
+        await snooze(100)
     }
 
     return list
