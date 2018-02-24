@@ -70,8 +70,8 @@ async function getSolutions() {
 
         await snooze(100)
 
-        if (counter % 20 == 0) {
-            await snooze(5000)
+        if (counter % 40 == 0) {
+            await snooze(30000)
         }
     }
 
