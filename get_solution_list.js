@@ -10,20 +10,50 @@ async function getSolutions() {
 
     for (let problem of problems) {
         try {
-            let data = await request({
-                uri: 'http://www.jiuzhang.com/api/solution_code/get_code_list/?unique_name=' + problem.unique_name + '&language=1',
+            let highlight_tags = await request({
+                uri: 'http://www.jiuzhang.com/api/solution/' + problem.unique_name + '/get_highlight_tags/',
+                json: true,
+                timeout: 10000
+            })
+
+            let suffix = ''
+            if (highlight_tags[0].count > 0) {
+                suffix += '&is_highlight=true'
+            }
+
+            let language_tags = await request({
+                uri: 'http://www.jiuzhang.com/api/solution/' + problem.unique_name + '/get_language_tags/?from=cu' + suffix,
                 json: true,
                 timeout: 10000
             })
 
             console.log('Problem {Id=' + problem.id + '}')
 
+            let solutions = []
+
+            for (let language of language_tags) {
+                let final_suffix = suffix + '&language=' + language.value
+
+                let codedata = await request({
+                    uri: 'http://www.jiuzhang.com/api/solution_code/get_code_list/?unique_name=' + problem.unique_name + final_suffix,
+                    json: true,
+                    timeout: 10000
+                })
+                
+                solutions.push({
+                    language: language.name,
+                    code: codedata.results[0].code
+                })
+            }
+            
+            console.log(' - processed ' + language_tags.length + ' languages')
+
             list.push({
                 id: problem.id,
                 unique_name: problem.unique_name,
                 title: problem.title,
                 description: problem.description,
-                code: data.results[0].code
+                solutions: solutions 
             })
 
             counter++
