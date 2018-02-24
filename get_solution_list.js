@@ -28,6 +28,8 @@ async function getSolutions() {
                 suffix += '&is_highlight=true'
             }
 
+            await snooze(200)
+
             let language_tags = await request({
                 uri: 'http://www.jiuzhang.com/api/solution/' + problem.unique_name + '/get_language_tags/?from=cu' + suffix,
                 json: true,
@@ -62,7 +64,7 @@ async function getSolutions() {
                     code: codedata.results[0].code
                 })
 
-                await snooze(100)
+                await snooze(200)
             }
             
             console.log(' - processed ' + language_tags.length + ' languages')
@@ -83,7 +85,7 @@ async function getSolutions() {
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
         }
 
-        await snooze(100)
+        await snooze(200)
 
         /*if (counter % 43 == 0) {
             console.log('=====> We must have a rest ^_^ <=====')
