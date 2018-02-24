@@ -63,6 +63,8 @@ async function getSolutions() {
             fs.writeFileSync('cache/__cache_solution_list', JSON.stringify(list), 'utf-8')
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
         }
+
+        sleep(100)
     }
 
     return list
