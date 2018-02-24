@@ -46,6 +46,8 @@ async function getSolutions() {
                     language: language.name,
                     code: codedata.results[0].code
                 })
+
+                await snooze(100)
             }
             
             console.log(' - processed ' + language_tags.length + ' languages')
@@ -66,7 +68,7 @@ async function getSolutions() {
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
         }
 
-        await snooze(100)
+        await snooze(500)
     }
 
     return list
