@@ -88,7 +88,7 @@ async function getSolutions(start_from) {
     let start_from = 0
 
     if(fs.existsSync('start_from')) {
-        start_from = fs.readFileSync('start_from', 'utf-8')
+        start_from = parseInt(fs.readFileSync('start_from', 'utf-8'))
         console.log('Start from' + start_from)
     }
 
