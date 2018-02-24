@@ -70,8 +70,9 @@ async function getSolutions() {
 
         await snooze(100)
 
-        if (counter % 40 == 0) {
-            await snooze(30000)
+        if (counter % 43 == 0) {
+            console.log('=====> Have a rest ^_^ <=====')
+            await snooze(120000)
         }
     }
 
