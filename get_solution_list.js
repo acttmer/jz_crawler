@@ -68,7 +68,7 @@ async function getSolutions(start_from = 0) {
             console.log(' - Totally processed ' + counter + ' problems')
             
         } catch (e) {
-            fs.writeFileSync('cache/__cache_solution_list', JSON.stringify(list), 'utf-8')
+            fs.writeFileSync('cache/__cache_solution_list_' + Date.now(), JSON.stringify(list), 'utf-8')
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
             console.log('*** At index ' + i)
         }
