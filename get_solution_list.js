@@ -17,9 +17,7 @@ async function getSolutions() {
                 json: true,
                 timeout: 10000,
                 headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
-                    'Host': 'www.jiuzhang.com',
-                    'Referer': 'http://www.jiuzhang.com/solution/' + problem.unique_name
+                    'Cookie': '__cfduid=d1e03dad38c7968597dd5c7115609ec2b1519364912; _ga=GA1.2.801675240.1519364916; _gid=GA1.2.177831493.1519364916; csrftoken=bQApIgDRNPtkRo3oXFTHwEmATXY94fHB; sessionid=vrvao0msd0yrw7b8r1m6yn2p6jmv3byf; _gat=1' + Math.random()
                 }
             })
 
@@ -35,9 +33,7 @@ async function getSolutions() {
                 json: true,
                 timeout: 10000,
                 headers: {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
-                    'Host': 'www.jiuzhang.com',
-                    'Referer': 'http://www.jiuzhang.com/solution/' + problem.unique_name
+                    'Cookie': '__cfduid=d1e03dad38c7968597dd5c7115609ec2b1519364912; _ga=GA1.2.801675240.1519364916; _gid=GA1.2.177831493.1519364916; csrftoken=bQApIgDRNPtkRo3oXFTHwEmATXY94fHB; sessionid=vrvao0msd0yrw7b8r1m6yn2p6jmv3byf; _gat=1' + Math.random()
                 }
             })
 
@@ -53,9 +49,7 @@ async function getSolutions() {
                     json: true,
                     timeout: 10000,
                     headers: {
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
-                        'Host': 'www.jiuzhang.com',
-                        'Referer': 'http://www.jiuzhang.com/solution/' + problem.unique_name
+                        'Cookie': '__cfduid=d1e03dad38c7968597dd5c7115609ec2b1519364912; _ga=GA1.2.801675240.1519364916; _gid=GA1.2.177831493.1519364916; csrftoken=bQApIgDRNPtkRo3oXFTHwEmATXY94fHB; sessionid=vrvao0msd0yrw7b8r1m6yn2p6jmv3byf; _gat=1' + Math.random()
                     }
                 })
                 
