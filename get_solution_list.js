@@ -68,7 +68,7 @@ async function getSolutions(start_from) {
             console.log(' - Totally processed ' + counter + ' problems')
             
         } catch (e) {
-            fs.writeFileSync('cache/__cache_solution_list_' + Date.now(), JSON.stringify(list), 'utf-8')
+            fs.writeFileSync('cache/__cache_solution_list_at_index_' + i + '_' + Date.now(), JSON.stringify(list), 'utf-8')
             console.log('*** Failed to process Problem {id=' + problem.id + '}')
             console.log('*** At index ' + i)
         }
@@ -76,7 +76,9 @@ async function getSolutions(start_from) {
         await snooze(100)
 
         if (counter % 20 == 0) {
-            console.log('=====> We must have a rest ^_^ <=====')
+            fs.writeFileSync('cache/__cache_solution_list_at_index_' + i + '_' + Date.now(), JSON.stringify(list), 'utf-8')
+            console.log('*** Cache for safety generated at index' + i)
+            console.log('=====> We must have a rest now ^_^ <=====')
             await snooze(75000)
         }
     }
